@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xor Center</title>
+<style>
+
+:root {
+  --text: #ffeb3b; 
+  --bg1: #0d1117;
+  --bg2: #1a1f2e;
+  --accent: #008080; 
+  --card: rgba(255, 165, 0, 0.8);
+  --radius: 30px;
+  --shadow: 0 0 25px rgba(0,0,0,0.2);
+}
+
+html, body {
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", system-ui, sans-serif;
+  font-weight: 700;
+  color: var(--text);
+  background: url("backg.jpg") center/cover no-repeat;
+  display: flex;
+  background-size: 800px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  --radius: 30px;
+}
+
+body::before, body::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(0,128,128,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: aura 12s infinite ease-in-out alternate;
+  filter: blur(40px);
+  will-change: transform;
+}
+
+body::before { top: -150px; left: -150px; }
+body::after { bottom: -150px; right: -150px; animation-delay: 6s; }
+
+@keyframes aura {
+  from { transform: scale(1) translate(0,0); opacity:0.6; }
+  to { transform: scale(1.1) translate(30px,30px); opacity:1; }
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 30px 15px;
+  text-align: center;
+  width: 90%;
+  max-width: 300px;
+  position: relative;
+  z-index: 10;
+  animation: fadeIn 1s ease forwards, rainbowGlow 3.5s infinite linear;
+  --radius: 30px;
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #000;
+  text-shadow: 0 0 15px rgba(0,128,128,0.3);
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #000;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.icon {
+  display: inline-block;
+  border-radius: 18px;
+  background: rgba(20,25,35,0.8);
+  box-shadow: 0 5px 15px rgba(0,128,128,0.15);
+  padding: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform, box-shadow;
+}
+
+.icon img {
+  width: 65px;
+  height: 65px;
+  border-radius: 16px;
+}
+
+.icon:hover {
+  transform: translateY(-6px) scale(1.08);
+  box-shadow: 0 0 20px rgba(0,128,128,0.35);
+}
+
+footer {
+  margin-top: 35px;
+  font-size: 0.9rem;
+  opacity: 0.75;
+  letter-spacing: 0.4px;
+  color: #0d47a1;
+}
+
+/* New 7-color rainbow glow */
+@keyframes rainbowGlow {
+  0%   { box-shadow: 0 0 25px 5px red; }
+  14%  { box-shadow: 0 0 25px 5px orange; }
+  28%  { box-shadow: 0 0 25px 5px yellow; }
+  42%  { box-shadow: 0 0 25px 5px green; }
+  57%  { box-shadow: 0 0 25px 5px cyan; }
+  71%  { box-shadow: 0 0 25px 5px blue; }
+  85%  { box-shadow: 0 0 25px 5px purple; }
+  100% { box-shadow: 0 0 25px 5px red; }
+  --radius: 30px;
+}
+
+</style>
+</head>
+<body>
+<main class="card">
+  <h1>PhotoCopy Pamu</h1>
+  <h3> وێنەگر و فۆتۆکۆپی پەموو</h3>
+  <div class="icons">
+    <a href="viber://chat?number=%2B9647502383929" class="icon"><img src="viber.png" alt="Viber"></a>
+    <a href="https://t.me/pamu2024" class="icon"><img src="telegram.png" alt="Telegram"></a>
+    <a href="https://wa.me/96477502383929" class="icon"><img src="whatsapp.png" alt="WhatsApp"></a>
+    <a href="tel:077502383929" class="icon"><img src="phone.png" alt="Call"></a>
+  </div>
+  <footer>© <span id="year"></span> Pamu</footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</main>
+</body>
+</html>
